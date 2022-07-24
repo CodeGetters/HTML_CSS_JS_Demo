@@ -1,0 +1,90 @@
+/*引入Jura字体(只引入)*/
+/* @font-face {
+	font-family: 'Jura';
+	src: url(/font/JuraBook-1.ttf);
+} */
+
+@import url("http://fonts.googleapis.com/css?family=Jura:200,300,400,500,600,700,800,900");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #0e141b;
+    color: #fff;
+	/* 引入字体 */
+    font-family: 'Jura';
+    font-weight: 300;
+	/* 文本居中 */
+    text-align: center;
+	/* 字符间距 */
+    letter-spacing: 8px;
+	/* 处理溢出内容：隐藏*/
+    overflow: hidden;
+}
+
+.column,
+.colon{
+    /* 行内块元素：在元素之后不添加换行符，因此该元素可以位于其他元素旁边。 */
+    display: inline-block;
+    font-size: 86px;
+    line-height: 86px;
+    /* 设置元素的垂直对齐方式：把元素的顶端与行中最高元素的顶端对齐 */
+    vertical-align: top;
+}
+
+.column{
+    /* 过渡：为一个元素在不同状态下之间切换的时候定义不同的过渡效果 */
+    transition: 0.3s;
+}
+
+/* 冒号 */
+.colon{
+    /* 向元素应用2D或3D转换，该属性可以对元素进行旋转、缩放、移动或倾斜： */
+	/* calc 函数用一个表达式作为它的参数,用这个表达式的结果作为值 */
+	/* 设置冒号的 Y 轴移动 (50% 的视口高度 - 55px) */
+	/* 注意:符号前后要留有空格 */
+    transform: translateY(calc(50vh - 55px));
+    /* 简写属性，用于设置过渡属性：规定完成过渡效果需要多少秒或者毫秒(transition-duration) */
+    transition: 0.3s;
+}
+
+/* 在该元素内容后面插入生成内容：插入: */
+.colon::after{
+    content: ":";
+}
+
+/* 数字默认样式 */
+.num{
+	/* 元素的不透明度(0.0 - 1.0) */
+    opacity: 0.25;
+	/* 过渡效果需要0.5s */
+    transition: 0.5s;
+}
+
+/* 当前时间（正中间数字） */
+.num.visible{
+	/* 完全不透明 */
+    opacity: 1;
+	/* 向文本设置阴影：水平阴影位置(h-shadow) 垂直阴影位置(v-shadow) 模糊的距离(blur) 阴影颜色 */
+	/* 后两个可选 */
+    text-shadow: 1px 1px 0 #2c6299;
+}
+
+/* 数字越远越其不透明度越小,则越透明 */
+/* 邻近的 */
+.num.near{
+    opacity: 0.3;
+}
+
+/* 远的 */
+.num.far{
+    opacity: 0.2;
+}
+
+/* 更远的 */
+.num.distant{
+    opacity: 0.1;
+}

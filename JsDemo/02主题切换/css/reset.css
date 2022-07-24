@@ -1,0 +1,64 @@
+/* 初始化 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* 最小高度为 100位置的视口位置 */
+    min-height: 100vh;
+    /* fllex 布局水平居中 */
+    display: flex;
+    /* 在容器中央对齐弹性项目 */
+    justify-content: center;
+    /* 弹性容器内的项目指定默认对齐方式(中央) */
+    align-items: center;
+    /* 切换背景时，背景效果的过渡时间为 0.5 秒 */
+    transition: background-color .5s ease-in-out;
+}
+
+.container .title{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    /* 字体间距 */
+    letter-spacing: 2px;
+    /* 用户是否可以选择(字体) */
+    user-select: none;
+    /* 文字颜色切换效果的过渡时间为 0.5s */
+    transition: color .5s ease-in-out;
+}
+
+.container .switch-btns{
+    display: flex;
+    margin-top: 32px;
+}
+
+/* 切换主题按钮的公共样式 */
+.container .switch-btns .btn{
+    width: 50px;
+    height: 50px;
+    /* 按钮为圆 */
+    border-radius: 50%;
+    margin: 0 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container .switch-btns .white{
+    background-color: #fff;
+}
+
+.container .switch-btns .dark{
+    background-color: #1d0624;
+}
+
+.container .switch-btns .red{
+    background-color: red;
+}
+
+.container .switch-btns .blue{
+    background-color: #3f00ff;
+}
+

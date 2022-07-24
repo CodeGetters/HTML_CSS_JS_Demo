@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局，居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(150deg,#d299c2,#fef9d7);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+
+.container{
+    width: 200px;
+    height: 200px;
+    /* 相对定位 */
+    position: relative;
+}
+
+/* 泡泡 */
+.container .bubble{
+    width: 100%;
+    height: 100%;
+    /* 径向渐变(圆形) */
+    /* radial-gradient()函数将径向渐变设置为背景图像，径向渐变由其中心定义且必须使用至少两个色标 */
+    /* 形状 大小 at 位置，开始颜色......最后颜色 */
+    background: radial-gradient(circle at 75% 30%,#fff 6px,#ff21c0 8%, #5b5b5b 60%,#ff21c0 100%);
+    border-radius: 50%;
+    /* 向框添加一个或多个阴影：inset(内部阴影) h-shadow(水平阴影的位置) v-shadow(垂直阴影的位置) blur(模糊距离) spread(阴影尺寸) */
+    box-shadow: inset 0 0 20px #fff,
+        inset 10px 0 46px #eaf5fc,
+        inset 80px 0 60px #efcde6,
+        inset -20px -60px 100px #f9f6de,
+        inset 0 50px 140px #f9f6de,
+        0 0 90px #fff;
+    /* 执行动画：动画名 完成所需时长 加速后减速 无限次播放 */
+    animation: bubble 4s ease-in-out infinite;
+}
+
+.container .shadow{
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 150px;
+    height: 40px;
+    border-radius: 50%;
+    /* 绝对定位 */
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    bottom: -100px;
+    /* 模糊效果 */
+    filter: blur(1px);
+    /* 执行动画：动画名 时长 加速后减速 无限次播放 */
+    animation: shadow 4s ease-in-out infinite;
+}
+
+/* 定义动画：0% 是动画开始的时间，100% 是动画的结束时间 */
+/* 泡泡浮动动画 */
+@keyframes bubble{
+    0%,100%{
+        /* 向元素应用 2D 或 3D 转换。 */
+        /* translateY：定义转换，只是用 X 轴的值 */
+        transform: translateY(0);
+        /* transform: translateX(90px); */
+    }
+    50%{
+        transform: translateY(-80px);
+        /* transform: translateX(0); */
+    }
+}
+
+/* 投影动画 */
+@keyframes shadow{
+    /* 泡泡往上浮动时，阴影面积减小
+    往下动时，阴影面积增大 */
+    0%,100%{
+        /* scale：定义 2D 缩放转换 */
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.7);
+    }
+}
