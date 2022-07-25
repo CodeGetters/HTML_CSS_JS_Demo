@@ -1,0 +1,151 @@
+/* 引入字体文件 */
+@font-face {
+    font-family: 'Poppins';
+    src: url(../font/Poppins.ttf);
+}
+
+/* 页面初始化 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* 将径向渐变设置为背景图像 */
+    background: radial-gradient(#333,#000);
+    overflow: hidden;
+    /* 弹性盒子居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 修改标题文字样式 */
+section h3{
+    color: #fff;
+    font-size: 4em;
+    /* 该属性控制文本的大小写：定义仅有大写字母 */
+    text-transform: uppercase;
+    /* 用户无法选中 */
+    user-select: none;
+    
+}
+
+/* 设置枫叶盒子的基本样式 */
+section .set{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* 该属性定义元素是否对指针事件作出反应 */
+    pointer-events: none;
+}
+
+/* 对第二个枫叶盒子单独设置样式 */
+.set2{
+    /* scale：定义倍数缩放(>1 放大  <1 缩小) */
+    /* rotateX：定义 X 轴为基点 */
+    transform: scale(2) rotateY(180deg);
+    /* 定义元素的视觉效果(通常是<img>)，如模糊和饱和度 */
+    /* blur(px)：对图像应用模糊效果。 */
+    filter: blur(2px);
+}
+
+/* 对第三个枫叶盒子单独设置样式 */
+.set3{
+    transform: scale(0.8) rotateX(180deg);
+    filter: blur(4px);
+}
+
+/* 对枫叶图片外侧盒子做样式 */
+section .set div{
+    position: absolute;
+    display: block;
+}
+
+/* :nth-chile(n)选择器匹配属于其父元素的第 n 个子元素，不论元素类型 */
+/* 对每一个单独的枫叶盒子做动画和样式修改 */
+section .set div:nth-child(1){
+    left: 20%;
+    /* 定义动画属性：动画名 完成时间 动画从头到尾的速度是相同的 无限次播放 */
+    animation: animate 15s linear infinite;
+    /* 规定动画开始之前的延迟 */
+    animation-delay: -7s;
+}
+
+section .set div:nth-child(2){
+    left: 50%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+
+section .set div:nth-child(3){
+    left: 70%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+
+section .set div:nth-child(4){
+    left: 0%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+
+section .set div:nth-child(5){
+    left: 85%;
+    animation: animate 18s linear infinite;
+    animation-delay: -10s;
+}
+
+section .set div:nth-child(6){
+    left: 0%;
+    animation: animate 12s linear infinite;
+    animation-delay: 0s;
+}
+
+section .set div:nth-child(7){
+    left: 15%;
+    animation: animate 14s linear infinite;
+    animation-delay: 0s;
+}
+
+section .set div:nth-child(8){
+    left: 90%;
+    animation: animate 18s linear infinite;
+    animation-delay: -1s;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    0%{
+        /* 设置元素的不透明度(0 - 1)，其值越小越透明 */
+        opacity: 0;
+        top: -10%;
+        transform: translateX(20px) rotate(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    20%{
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40%{
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60%{
+        transform: translateX(20px) rotate(180deg);
+    }
+    80%{
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100%{
+        top: 110%;
+        transform: translateX(-20px) rotate(226deg);
+    }
+}
