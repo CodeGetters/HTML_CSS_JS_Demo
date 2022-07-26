@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    /* 弹性布局垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* linear-gradient()：把线性渐变设置为背景图像 */
+    /* 渐变效果的起点和方向(或角度)  色标：颜色，可选的停止位置(0% 到 100% 之间的百分比值，或渐变轴的长度值)*/
+    /* 从左上方开始的线性渐变，从第一个颜色过渡到最后一个颜色 */
+    background-image: linear-gradient(to left top,#d16ba5,#c777b9,#ba83ca,#aa8fd8,#9a9ae1,#8aa7ec,#79b3f4,#69bff8,#52cffe,#41dfff,#46eefa,#5ffbf1);
+}
+
+.from{
+    width: 900px;
+    height: 560px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    /* 向框添加一个或多个阴影 */
+    /* 水平阴影位置 垂直阴影位置 模糊距离 */
+    box-shadow: 0 25px 45px rgba(0,0,0,.1);
+}
+
+.left{
+    width: 500px;
+    height: 560px;
+}
+
+.left video{
+    width: 100%;
+    height: 100%;
+    /* 用于指定应如何调整<img>或<video>的大小以适合其容器 */
+    /* contain：缩放替换后的内容以保持其纵横比，同时将其放入元素的内容框内。 */
+    /* cover：调整替换内容的大小，以填充元素的整个内容框时保持其长宽比。该对象将被裁减以适应 */
+    /* scale-down：调整内容大小就像没有指定内容或包含内容一样(将导致较小的具体对象尺寸) */
+    object-fit: cover;
+}
+
+.right{
+    width: 400px;
+    height: 560px;
+    background: rgba(255,255,255,.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-con{
+    width: 70%;
+    display: flex;
+    /* flex-direction：决定主轴的方向(即项目的排列方向) */
+    /* column：株洲为垂直方向，起点在上沿(从上往下开始排列) */
+    flex-direction: column;
+    text-align: center;
+}
+
+h1{
+    font-size: 26px;
+    color: #70b4e3;
+    font-weight: 400;
+    padding-bottom: 10px;
+    user-select: none;
+}
+h3{
+    font-size: 12px;
+    font-weight: 400;
+    color: #70b4e3;
+    padding: 20px 0;
+    user-select: none;
+}
+
+/* 两个输入框样式 */
+.text{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 20px;
+    border-bottom: 1px solid #70b4e3;
+    background: rgba(0, 0, 0, 0);
+    color: #366ae6;
+}
+
+/* 按钮样式 */
+.btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px;
+    /* deg：度 */
+    background-image: linear-gradient(120deg,#76daec 0%,#c5a8de 100%);
+}
+
+/* 鼠标悬浮按钮阴影效果 */
+.btn:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
