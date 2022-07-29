@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    /* 设置的边框和内边距的值是包含在总宽高内的 */
+    box-sizing: border-box;
+}
+
+body{
+    /* 弹性布局：水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 设置 body 最小高度为 100% 窗口高度 */
+    min-height: 100vh;
+    /* liear-gradient()：函数用于创建一个表示两种或多种颜色线性渐变的图片 */
+    /* direction,color-stop.... */
+    background: linear-gradient(200deg,#0c3483,#a2b);
+}
+
+.wrapper{
+    width: 450px;
+    background-color: #fff;
+    /* 内边距 */
+    padding: 40px;
+    /* 向框添加一个或多个阴影 */
+    /* h-shadow(水平阴影的位置) v-shadow(垂直阴影的位置) blur(模糊距离) spread color insert */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    /* 圆角 */
+    border-radius: 8px;
+}
+
+/* 输入框盒子 */
+.wrapper .input-data{
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+/* 输入框样式 */
+.wrapper .input-data input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    /* 下划线 */
+    border-bottom: 2px solid #c0c0c0;
+}
+
+/* 输入框获得焦点时 */
+/* ~ 选择器：查找某一个指定元素的后面的所有兄弟节点 */
+.wrapper .input-data input:focus ~ label,
+/* 输入框的值为合法时 */
+.wrapper .input-data input:valid ~ label{
+    /* label 上移，同时改变字号、字体颜色 */
+    /* transform：向元素应用 2D 或 3D 转换。该属性允许对元素进行旋转、缩放、移动或倾斜 */
+    /* translateY：定义转换，只是用 Y 轴的值。 */
+    /* 在平面上垂直移动元素 -25px */
+    transform: translateY(-25px);
+    font-size: 15px;
+    color: #2c6fdb;
+}
+
+.wrapper .input-data label{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: #808080;
+    /* 定义元素是否对指针事件作出反应 */
+    pointer-events:none;
+    /* transition：过渡属性,property(过渡名称) duration(过渡完成需要多少秒或毫秒) timing-function(速度效果的速度曲线) delay(过渡效果何时开始)*/
+    /* ease：慢速开始，然后变快，然后慢速结束的过渡效果 */
+    transition: all .3s ease;
+}
+
+.wrapper .input-data .underline{
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #a2b;
+    /* scale：沿 X 轴方向上缩放元素 */
+    /* transfrom：向元素应用 2D 或 3D 转换。该属性允许我们进行旋转、缩放、移动或倾斜 */
+    transform: scaleX(0);
+    /* 动画过渡 */
+    /* transition：过渡属性,property(过渡名称) duration(过渡需要完成的时间) timing-function(速度效果的速度曲线) delay(过渡何时开始) */
+    /* ease：慢速开始，然后加速，然后以慢速结束 */
+    transition: all .3s ease;
+}
+
+/* ~ 兄弟选择器：用于查找某一个指定元素的后面的所有兄弟结点 */
+.wrapper .input-data input:focus~.underline,
+.wrapper .input-data input:valid~.underline{
+    /* 沿 X 轴放大 */
+    transform: scaleX(1);
+}
