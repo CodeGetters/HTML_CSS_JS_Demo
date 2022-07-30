@@ -1,0 +1,109 @@
+/* 导入字体 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 初始化设置 */
+body{
+    margin: 0;
+    padding: 0;
+    /* 弹性布局：垂直水平居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 这里的 100vh 是视口高度，加了上面的上下居中效果才会生效 */
+    height: 100vh;
+    font-family: 'Poppins',sans-serif;
+}
+
+/* 对页面文字做初步的效果 */
+h1{
+    margin: 0;
+    padding: 0;
+    font-size: 10em;
+    /* 过渡属性：property(名称) duration(过渡需要时间) timing-function(速度效果的速度曲线) delay(过渡何时开始) */
+    transition: 0.5s;
+}
+
+h1 span{
+    /* 相对定位 */
+    position: relative;
+    /* 控制文本的大小写 */
+    /* uppercase：定义仅有大写字母 */
+    text-transform: uppercase;
+    display: block;
+    /* 过渡属性：property(名称) duration(过渡需要的时间) timing-function(速度效果的速度曲线) delay(过渡何时开始) */
+    transition: .5s;
+}
+
+/* 用两个伪元素实现红线效果 */
+h1 span:nth-child(1)::before{
+    /* 该属性用于定于元素之前或之后放置的生成内容。 */
+    /* 默认地，这往往是行内内容创建的框类型可以用属性 display 控制 */
+    content: "";
+    position: absolute;
+    /* calc：运算符左右都要留有空格 */
+    /* calc： 用于动态计算长度值*/
+    top: calc(50% - 15px);
+    right: 0;
+    width: 50%;
+    height: 30px;
+    background-color: #f00;
+    /* 下面两行规定 transform 的起始方向和量 */
+    /* transform-origin：允许改变被旋转元素的位置 */
+    /* 该属性必须与 transfrom 一起使用 */
+    transform-origin: right;
+    /* scale()：用于修改元素的大小。可以通过向量形式定义的缩放值来方法或缩小元素
+    同时可以在不同的方向设置不同的缩放值。 */
+    transform: scale(0);
+    /* 过度属性：property(名称) duration(过渡需要的时间) timing-function(速度效果的速度曲线) delay(过渡何时开始) */
+    transition: .5s;
+    /* 设置元素的堆叠顺序。有用更高堆叠顺序的元素总是会处于堆叠顺序较低的前面 */
+    z-index: 1;
+}
+
+/* 为第一个伪元素添加 hover 效果 */
+h1:hover span:nth-child(1)::before{
+    transform: scaleX(1);
+}
+
+h1 span:nth-child(2)::before{
+    /* 该属性用于定于元素之前或之后放置的生成内容。 */
+    /* 默认地，这往往是行内内容创建的框类型可以用属性 display 控制 */
+    content: "";
+    position: absolute;
+    /* calc：运算符左右都要留有空格 */
+    top: calc(50% - 15px);
+    left: 0;
+    width: 50%;
+    height: 30px;
+    background-color: #f00;
+    transform-origin: left;
+    transform: scale(0);
+    transform: .5s;
+    z-index: 1;
+}
+
+/* 第二个伪元素 */
+h1:hover span:nth-child(2)::before{
+    transform: scale(1);
+}
+
+/* 让两个 hide 标签在 hover 效果之后隐藏(透明度实现) */
+h1 span hide{
+    transition: .5s;
+    transition-delay: 1s;
+}
+
+h1:hover span hide{
+    transition-delay: 1s;
+    color: #f00;
+    opacity: 0;
+}
+
+/* 调整 padding 效果让整个效果更自然 */
+h1:hover span:nth-child(1) hide{
+    padding-right: 30px;
+}
+
+h1:hover span:nth-child(2) hide{
+    padding-right: 30px;
+}
