@@ -1,0 +1,199 @@
+/* 初始化 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 容器样式 */
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to left top,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+}
+
+.container .from {
+  width: 900px;
+  height: 560px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+.container .from .left {
+  width: 500px;
+  height: 560px;
+}
+
+.container .from .left video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .from .right {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  font-size: 17px;
+  justify-content: center;
+  align-items: center;
+  /* 从上往下排列 */
+  flex-direction: column;
+  background: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+/* 标题样式 */
+.container .from .right h1 {
+  color: #41dfff;
+  font-weight: 400;
+  font-size: 26px;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+/* 第一个输入框 */
+.container .from .right .userBox {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.container .from .right .userBox .user {
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #619ff8;
+  border-bottom: 2px solid #ccc;
+}
+
+.container .from .right .userBox label {
+  position: absolute;
+  font-size: 16px;
+  bottom: 23px;
+  left: 51px;
+  color: #619ff8;
+  transition: all 0.3s ease;
+}
+
+/* 第一个输入框动画 */
+.container .from .right .userBox .user:hover ~ label,
+.container .from .right .userBox .user:focus ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #41dfff;
+}
+
+/* 第二个输入框样式 */
+.container .from .right .emailBox {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.container .from .right .emailBox .email {
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #619ff8;
+  border-bottom: 2px solid #ccc;
+}
+
+.container .from .right .emailBox label {
+  position: absolute;
+  font-size: 16px;
+  bottom: 23px;
+  left: 51px;
+  color: #619ff8;
+  transition: all 0.3s ease;
+}
+
+/* 第二个输入框动画 */
+.container .from .right .emailBox .email:hover ~ label,
+.container .from .right .emailBox .email:focus ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #41dfff;
+}
+
+/* 第三个输入框样式 */
+.container .from .right .pswBox {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.container .from .right .pswBox .password {
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #619ff8;
+  border-bottom: 2px solid #ccc;
+}
+
+.container .from .right .pswBox label {
+  position: absolute;
+  font-size: 16px;
+  bottom: 23px;
+  left: 51px;
+  color: #619ff8;
+  transition: all 0.3s ease;
+}
+
+/* 第三个输入框动画 */
+.container .from .right .pswBox .password:hover ~ label,
+.container .from .right .pswBox .password:focus ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #41dfff;
+}
+
+/* 按钮样式 */
+.btn{
+    border: none;
+    outline: none;
+    width: 65%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    background: linear-gradient(120deg,#76daec 0%,#c5a8de 100%);
+}
+
+/* 按钮阴影样式 */
+.btn:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
