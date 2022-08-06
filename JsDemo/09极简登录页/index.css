@@ -1,0 +1,130 @@
+* {
+	padding: 0;
+	margin: 0;
+	user-select: none;
+}
+
+body {
+	background: url(/images/03极简登录页/wallpaper.jpg) no-repeat;
+	/* background-size：规定背景图像尺寸 */
+	/* cover：将背景图像扩展至足够大，以使背景图像完全覆盖背景区域
+    背景图像的某些部分也许无法显示在背景定位区域中 */
+	background-size: cover;
+	/* background-attachment：设置背景图像是否固定或者随着页面的其余部分滚动 */
+	/* fixed：当页面的其余部分滚动时，背景图像不会移动 */
+	background-attachment: fixed;
+}
+
+.container {
+	/* 弹性布局：垂直居中 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container .login {
+	background: whitesmoke;
+	height: 350px;
+	width: 350px;
+	/* 弹性布局：垂直水平居中 */
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	/* 从上往下排列 */
+	flex-direction: column;
+	/* 圆角边框 */
+	border-radius: 20px;
+	font-size: 22px;
+}
+
+/* 标题样式 */
+p {
+	font-size: 42px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* 第一个输入框样式 */
+.container .login .user {
+	height: 48px;
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.container .login .user input {
+	width: 80%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 18px;
+	outline: none;
+	border: none;
+	background-color: whitesmoke;
+	border-bottom: 2px solid #c0c0c0;
+}
+
+.container .login .user label {
+	position: absolute;
+	left: 35px;
+	bottom: 20px;
+}
+
+/* 第一个输入动画 */
+.container .login .user input:focus ~ label,
+.container .login .user input:hover ~ label {
+	transform: translateY(-16px);
+	transition: all 0.3s;
+	font-size: 20px;
+	color: #c0c0c0;
+}
+
+/* 第二个输入框样式 */
+.container .login .psw {
+	height: 48px;
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.container .login .psw input {
+	width: 80%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 18px;
+	outline: none;
+	border: none;
+	background-color: whitesmoke;
+	border-bottom: 2px solid #c0c0c0;
+}
+
+.container .login .psw label {
+	position: absolute;
+	left: 35px;
+	bottom: 20px;
+}
+
+/* 第二个输入框动画 */
+.container .login .psw input:focus ~ label,
+.container .login .psw input:hover ~ label {
+	transform: translateY(-16px);
+	transition: all 0.3s;
+	font-size: 20px;
+	color: #c0c0c0;
+}
+
+.container .login .btn {
+    border: none;
+    outline: none;
+	border-radius: 50px;
+	background: #ccc; 
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    margin-left: 34%;
+}
+
+.container.login .btn:hover{
+	box-shadow: 0 25px 45px rgba(0,0,0,.3);
+}
