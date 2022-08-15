@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1.0,user-scalable=0,maximum-scale=1.0,minimum-scale=1.0"
+		/>
+		<title>New-Webpage</title>
+		<!-- 字体图标 CDN -->
+		<link
+			href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.2/css/all.css"
+			rel="stylesheet"
+		/>
+		<!-- 引入首页 css 文件 -->
+		<link rel="stylesheet" href="index.css" />
+		<script>
+			function change(str){
+				document.querySelector('#container').setAttribute('class',str);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="btn-box">
+			<div onclick="change('light')">
+				<i class="fa-solid fa-sun"></i>
+				黎明
+			</div>
+			<div onclick="change('dark')">
+				<i class="fa-solid fa-moon"></i>
+				黑暗
+			</div>
+		</div>
+		<div class="dark" id="container">
+			<div class="bg"></div>
+			<div class="moon-box">
+				<div class="moon"></div>
+			</div>
+			<div class="sun-box">
+				<div class="sun"></div>
+			</div>
+			<div class="sea"></div>
+		</div>
+	</body>
+</html>
