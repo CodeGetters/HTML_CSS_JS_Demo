@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* 初始化 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* 公共样式。:root 选择器匹配文档根元素，在HTML中根元素始终是HTML元素 */
+:root {
+	/* 颜色 */
+	--body-color: #e4e9f7;
+	--sidebar-color: #fff;
+	/* 主题颜色 */
+	--primary-color: #695cfe;
+	--primary-color-light: #f6f5ff;
+	--toggle-color: #ddd;
+	--text-color: #707070;
+	/* 过渡效果 */
+	/* 自定义属性 */
+	--tran-03: all 0.3s ease;
+}
+
+body {
+    /* 取消横坐标滚动条 */
+    overflow-x: hidden;
+	min-height: 100vh;
+	/* var() 函数用于插入自定义属性的值，而不是另一个属性的值的任何部分。 */
+	background-color: var(--body-color);
+	transition: var(--tran-03);
+}
+
+/* 
+::selection 选择器匹配元素中被用户选中或处于高亮状态的部分。
+::selection 只可以应用于少数的CSS属性：color, background, cursor,和outline。 */
+::selection {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+/* 当body标签拥有dark类名的时候的样式 */
+body.dark {
+	--body-color: #18191a;
+	--sidebar-color: #242526;
+	--primary-color: #3a3b3c;
+	--primary-color-light: #3a3b3c;
+	--toggle-color: #fff;
+	--text-color: #ccc;
+}
+
+/* 侧边栏总样式 */
+/* sidebar上的初始化样式 */
+.sidebar {
+	/* 绝对定位 */
+	/* 如果父div不设置position设置为relative，仅仅只是子元素position设置为absolute，
+    子元素的top、left等将会相对于整个body，而不是父元素 */
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 250px;
+	/* 内边距 */
+	padding: 10px 14px;
+	/* 背景颜色 */
+	background: var(--sidebar-color);
+	/* 过渡 */
+	transition: var(--tran-03);
+	/* 层级显示 */
+	z-index: 100;
+}
+
+/* 关闭模式下的宽度 */
+/* 同时拥有这两个类的生效下面的样式 */
+.sidebar.close {
+	width: 88px;
+}
+
+/* 图标列表样式 */
+.sidebar li {
+	height: 50px;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+/* 侧边栏图标统一样式 */
+.sidebar .icon {
+	min-width: 60px;
+	border-radius: 6px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+
+/* 侧边栏文本统一样式 */
+.sidebar .text {
+	font-size: 15px;
+	font-weight: 500;
+	/* white-space：处理元素中的空白 */
+	/* nowrap：连续的空白符会被合并，但文本的换行无效 */
+	white-space: nowrap;
+	/* 不透明度 */
+	opacity: 1;
+}
+
+/* 侧边栏文本和图标共用样式 */
+.sidebar .text,
+.sidebar .icon {
+	color: var(--text-color);
+	transition: var(--tran-03);
+}
+
+/* 侧边栏箭头图标 */
+.sidebar header .toggle {
+	/* 绝对定位 */
+	position: absolute;
+	top: 50%;
+	right: -25px;
+	/* transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。 */
+	/* translateY：以 Y 轴进行移动 */
+	/* rotate：定义 2D 旋转，在参数中规定角度。 */
+	/* 打开侧边栏启用 */
+	transform: translateY(-50%) rotate(180deg);
+	height: 25px;
+	width: 25px;
+	text-align: center;
+	line-height: 25px;
+	background-color: var(--primary-color);
+	color: var(--sidebar-color);
+	/* 圆形 */
+	border-radius: 50%;
+	/* 弹性布局垂直居中 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* 图标大小 */
+	font-size: 22px;
+	cursor: pointer;
+	/* 过渡 */
+	transition: var(--tran-03);
+}
+
+/* 暗黑模式下侧边栏箭头图标颜色 */
+body.dark .sidebar header .toggle {
+	color: var(--text-color);
+}
+
+/* 未打开时侧边栏箭头图标的样式 */
+.sidebar.close .toggle {
+	transform: translateY(-50%) rotate(0deg);
+}
+
+/* 侧边栏图标区域 */
+.sidebar .menu-bar {
+	height: calc(100% - 55px);
+	/* 弹性布局 */
+	display: flex;
+	/* 从上到下排列 */
+	flex-direction: column;
+	/* 均匀排列每个元素，首个元素放置于起点，末尾元素放置于终点 */
+	justify-content: space-between;
+}
+
+/* 头像样式 */
+.sidebar header .image{
+	min-width: 60px;
+	border-radius: 6px;
+}
+
+/* 侧边栏关闭时的文本 */
+.sidebar.close .text {
+	opacity: 0;
+}
+
+/* header部分样式 */
+.sidebar header {
+	/* 相对定位 */
+	position: relative;
+}
+
+/* 头像和logo区域样式 */
+.sidebar header .image-text {
+	display: flex;
+	align-items: center;
+}
+
+/* logo单独文本样式 */
+.sidebar header .logo-text {
+	display: flex;
+	/* 从上到下排序 */
+	flex-direction: column;
+}
+
+/* 名字文本样式 */
+header .image-text .name {
+	margin-top: 2px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/* 个性签名文本 */
+header .image-text .profession {
+	font-size: 16px;
+	margin-top: -2px;
+	display: block;
+}
+
+/* 头像框 */
+.sidebar header .image {
+	/* 弹性布局垂直居中 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    /* 可点击 */
+	cursor: pointer;
+}
+
+/* 头像图片 */
+.sidebar header .image img {
+	width: 40px;
+	border-radius: 6px;
+}
+
+/* 图标列区域 */
+.sidebar .menu-bar .menu {
+	margin-top: 40px;
+}
+
+/* 搜索栏 */
+.sidebar li.search-box {
+	border-radius: 6px;
+	background-color: var(--primary-color-light);
+	cursor: pointer;
+	transition: var(--tran-03);
+}
+
+/* 搜索栏下的输入框 */
+.sidebar li.search-box input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	background-color: var(--primary-color-light);
+	color: var(--text-color);
+	border-radius: 6px;
+	font-size: 16px;
+	font-weight: 500;
+    /* 过渡 */
+	transition: var(--tran-03);
+}
+
+/* 输入框下面的图标区域 */
+.sidebar li a {
+	list-style: none;
+	height: 100%;
+    /* transparent属性用来指定全透明色彩 */
+	background-color: transparent;
+	display: flex;
+    /* 居中对齐 */
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border-radius: 6px;
+    /* 文本下划线 */
+	text-decoration: none;
+    /* 过渡 */
+	transition: var(--tran-03);
+}
+
+/* 图标hover背景颜色 */
+.sidebar li a:hover {
+	background-color: var(--primary-color);
+}
+
+/* 图标hover 文本和图标样式 */
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+	color: var(--sidebar-color);
+}
+
+/* 暗黑模式下的 hover 效果后图标和文本颜色 */
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+	color: var(--text-color);
+}
+
+/* 侧边栏最后两个图标区域 */
+.sidebar .menu-bar .bottom-content .mode {
+    /* margin-top: 0; */
+	border-radius: 6px;
+	background-color: var(--primary-color-light);
+	/* 相对定位 */
+	position: relative;
+	transition-timing-function: var(--tran-03);
+    user-select: none;
+}
+
+/* 明亮模式按钮 */
+.menu-bar .bottom-content .mode .sun-moon {
+	height: 50px;
+	width: 60px;
+}
+
+/* 明亮模式图标 */
+.mode .sun-moon i {
+	/* 绝对定位 */
+	position: absolute;
+}
+
+/* 明亮模式图标 */
+.mode .sun-moon i.sun {
+	opacity: 0;
+}
+
+/* 明亮模式下图标 */
+body.dark .mode .sun-moon i.moon {
+	opacity: 0;
+}
+
+/* 暗黑模式下的图标 */
+body.dark .mode .sun-moon i.sun {
+	opacity: 1;
+}
+
+/* 模式切换开关区域 */
+.menu-bar .bottom-content .toggle-switch {
+    /* 绝对定位 */
+	position: absolute;
+	right: 0;
+	height: 100%;
+	min-width: 60px;
+    /* 弹性布局垂直居中 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+    /* 点击效果 */
+	cursor: pointer;
+}
+
+/* 模式切换开关样式 */
+.toggle-switch .switch {
+	/* 相对定位 */
+	position: relative;
+	height: 22px;
+	width: 40px;
+	border-radius: 25px;
+	background-color: var(--toggle-color);
+	transition: var(--tran-03);
+}
+
+/* 开关里面的实心圆 */
+.switch::before {
+	content: '';
+    /* 绝对定位 */
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	top: 50%;
+	left: 5px;
+	transform: translateY(-50%);
+	background-color: var(--sidebar-color);
+    /* 过渡 */
+	transition: var(--tran-03);
+}
+
+/* 暗黑模式下开关图标 */
+body.dark .switch::before {
+	left: 20px;
+}
+
+/* 主区域内容 */
+.home {
+	/* 相对定位 */
+	position: absolute;
+	top: 0;
+	left: 250px;
+	height: 100vh;
+	width: calc(100% - 250px);
+	background-color: var(--body-color);
+	transition: var(--tran-03);
+}
+
+/* 主区域文本 */
+.home .text {
+	font-size: 30px;
+	font-weight: 500;
+	color: var(--text-color);
+	padding: 12px 60px;
+}
+
+.sidebar.close ~ .home {
+	left: 98px;
+	height: 100vh;
+	width: calc(100% - 78px);
+}
+
+/* 暗黑模式下的主区域文本 */
+body.dark .home .text {
+	color: var(--text-color);
+}
